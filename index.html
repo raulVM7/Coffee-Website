@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brew Haven Coffee</title>
+
+  <!-- Font Awesome (un singur link; aveai două, al doilea era de prisos) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="container header-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-mug-hot logo-icon"></i>
+        <div class="logo-text">Brew <span>Haven</span></div>
+      </a>
+      <div class="nav_menu_btn" id="menuBtn"><i class="fa-solid fa-bars"></i></div>
+      <nav >
+
+        <ul id="navLinks" class="navbar">
+          <li><a href="#">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="mobile-only"><a href="#" class="btn btn-primary">Order Online</a></li>
+        </ul>
+
+      </nav>
+
+      <div class="nav-buttons">
+        <a href="#" class="btn btn-secondary Sign btn-nav">Sign In</a>
+        <a href="#" class="btn btn-primary order btn-nav">Order Online</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="contain">
+
+      <div class="hero-content">
+        <div class="hero-subtitle">
+          <i class="fa-solid fa-seedling"></i>
+          Ethically Sourced Beans
+        </div>
+
+        <h1 class="hero-title">
+          Artisan Coffee <br> <span>Crafted with passion</span>
+        </h1>
+
+        <p class="hero-text">
+          Discover single-origin coffee roasted to perfection in small batches for exceptional flavor.
+          Experience the journey from bean to cup with our master roaster.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#products" class="btn-prim">Explore our blends</a>
+          <a href="#" class="btn-secon">Visit our Cafe</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="poze/6.png" class="image" alt="Cup of freshly brewed coffee">
+      </div>
+
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="contai">
+      <div class="products-header">
+        <div class="section-subtitle">Our Selection</div>
+        <h2 class="section-title">Signature Coffee Blends</h2>
+        <p class="section-desc">Each batch is carefully roasted to highlight the unique characteristics of the beans</p>
+      </div>
+
+      <div class="product-grid">
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="poze/prima.jpg" alt="Ethiopian Yirgacheffe coffee beans">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Ethiopian Yirgacheffe</h3>
+            <p class="product-desc">Floral notes with bright citrus acidity and tea-like body. Light roast</p>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">$18.99</div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="poze/2.jpg" alt="Colombian Supremo coffee beans">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Colombian Supremo</h3>
+            <p class="product-desc">Rich caramel sweetness with nutty undertones and balanced acidity. Medium roast</p>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">$16.99</div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img">
+            <img src="poze/3.jpg" alt="Dark roasted espresso coffee beans">
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Dark Roasted Espresso</h3>
+            <p class="product-desc">Bold and intense with dark chocolate notes and a creamy mouthfeel. Dark roasted</p>
+          </div>
+          <div class="product-footer">
+            <div class="product-price">$17.99</div>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="conta" id="contact">
+      <div class="footer-content">
+
+        <div class="footer-column">
+          <h3 id="footertop1">About BrewHaven</h3>
+          <p>Artisan coffee roasters dedicated to quality, sustainability, and the perfect cup</p>
+        </div>
+
+        <div class="footer-column">
+          <h3 id="footertop2">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#">Coffee Blends</a></li>
+            <li><a href="#">Brewing Guides</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Wholesale</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 id="footertop3">Contact Us</h3>
+          <ul>
+            <li>123 Coffee Land, Portland</li>
+            <li>(+40)379-593-484</li>
+            <li>hello@brewhaven.com</li>
+            <li>Monday-Sunday: 07:00-23:00</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        &copy;2026 BrewHaven Coffee Roasters. All rights reserved
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>

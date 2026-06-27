@@ -1,0 +1,601 @@
+/* ============================================================
+   BREW HAVEN — stylesheet refăcut cu unități flexibile
+   ------------------------------------------------------------
+   Principiu de unități:
+   - font-size, spațieri mari  -> rem  (1rem = 16px)
+   - lățimi de conținut        -> %, max-width (NICIODATĂ px fix)
+   - înălțimi                  -> auto / fără px fix unde se poate
+   - borduri, detalii mici     -> px (nu trebuie să se scaleze)
+   Fără @media aici — partea de telefon o adaugi tu la final.
+   ============================================================ */
+
+:root {
+  --coffee-dark: #3E2723;
+  --coffee-medium: #6F4E37;
+  --coffee-light: #c4a484;
+  --coffee-accent: #D2B48C;
+  --coffee-cream: #f5f5dc;
+  --coffee-gold: #D4AF37;
+  --text-dark: #2c2416;
+  --text-light: #f3f3f3;
+
+  /* lățimea maximă a conținutului, centrat */
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 1px;   /* px e ok aici: detaliu fin, nu se scalează */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--coffee-cream);
+  color: var(--text-dark);
+  line-height: 1.7;
+  /* NB: am scos `overflow-x: hidden`. Acela ascundea problemele
+     de overflow în loc să le rezolve. Vrei să VEZI când ceva
+     iese din ecran, ca să-l repari corect cu media queries. */
+}
+
+/* imaginile devin fluide implicit peste tot */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+/* ===================== HEADER / NAV ===================== */
+
+header {
+  background-color: #161515;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 0.625rem 0;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding pe container în loc de margini pe logo/buton.
+     Mai curat și se adaptează mai ușor. */
+  padding: 0 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--coffee-gold);
+  font-size: 1.75rem;
+}
+
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: var(--coffee-medium);
+}
+
+.logo-text span {
+  color: var(--coffee-gold);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--coffee-medium);
+  font-weight: 600;
+  position: relative;
+  font-size: 1.125rem;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.nav_menu_btn{
+  color: var(--coffee-medium);
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
+}
+
+.navbar{
+  position: relative;
+}
+
+
+nav a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;             /* linie fină -> px e ok */
+  background: var(--coffee-gold);
+  transition: width 0.4s ease;
+}
+
+nav a:hover:after {
+  width: 100%;
+}
+
+
+.nav-buttons {
+  display: flex;
+  gap: 0.9rem;
+ 
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+
+}
+
+.btn-primary {
+  background: var(--coffee-medium);
+  color: white;
+  
+}
+
+.btn-primary:hover {
+  background: var(--coffee-dark);
+  transform: translateY(-3px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--coffee-medium);
+  border: 2px solid var(--coffee-medium);
+}
+
+.btn-secondary:hover {
+  background: var(--coffee-medium);
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+/* ======================== HERO ======================== */
+
+.hero {
+  position: relative;             /* ancoră pentru ::before */
+  padding: 7rem 0 4rem;           /* top mare ca să treacă de header-ul fixat */
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;                       /* = top/left/right/bottom: 0 */
+  background: linear-gradient(135deg, #1d110c 0%, #000000 50%);
+  z-index: -1;
+}
+
+.contain {
+  width: 90%;
+  max-width: 1500px;
+  margin: auto;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+
+.hero-content {
+  flex: 1;
+  margin-bottom: 10rem;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: 100%;            /* era 2000px + margin-left 300px + height 800px:
+                             ASTA cauza scroll-ul orizontal */
+  height: auto;
+  border-radius: 1rem;
+  background-image: transparent;
+
+}
+
+.hero-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--coffee-accent);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle::before {
+  content: "";
+  width: 50px;            /* liniuță decorativă fixă -> px ok */
+  height: 2px;
+  background: var(--coffee-gold);
+}
+
+.hero-title {
+  color: var(--text-light);
+  font-size: 4rem;        /* mare intenționat: ai pe ce exersa micșorarea */
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  
+}
+
+.hero-title span {
+  color: var(--coffee-gold);
+ 
+}
+
+.hero-text {
+  color: var(--text-light);
+  max-width: 500px;       /* era width: 800px fix; max-width se strânge pe ecrane mici */
+  font-size: 1.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.hero-buttons a {
+  display: inline-block;
+  padding: 0.75rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-prim {
+  background: var(--coffee-medium);
+  color: white;
+}
+
+.btn-prim:hover {
+  background: var(--coffee-dark);
+  transform: translateY(-4px);
+}
+
+.btn-secon {
+  background: transparent;
+  color: var(--coffee-medium);
+  border: 2px solid var(--coffee-medium);
+}
+
+.btn-secon:hover {
+  background: var(--coffee-medium);
+  color: white;
+  transform: translateY(-4px);
+}
+
+
+/* ====================== PRODUCTS ====================== */
+
+.products {
+  background-color: #161515;
+  border-top: 4px solid var(--coffee-gold);
+  padding: 7.5rem 0;
+}
+
+.contai {
+  width: 90%;
+  max-width: var(--max-width);
+  margin: 0 auto;          /* era margin: 50px; margin-left: 80px (rupea centrarea) */
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 4rem;     /* era `0 auto 100` — valoare invalidă, fără unitate */
+}
+
+.section-subtitle {
+  font-size: 1.4rem;
+  color: var(--coffee-gold);
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  color: var(--coffee-gold);
+  font-size: 3.5rem;
+  display: inline-block;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: var(--coffee-gold);
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.section-desc {
+  margin-top: 1.25rem;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  max-width: 600px;        /* era width: 95% pe tot ecranul */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-grid {
+  display: grid;
+  /* auto-fit + minmax = se pliază SINGUR pe mai puține coloane
+     când nu mai încap. Asta e deja responsive fără media query! */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.product-card {
+  background-color: var(--coffee-dark);
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;             /* era 92% (lăsa un gol ciudat) */
+  height: auto;            /* era 670px fix; grid-ul aliniază înălțimile singur */
+  transition: all 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-13px);
+}
+
+.product-img {
+  height: 380px;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-title {
+  color: var(--text-light);
+  font-size: 1.5rem;
+}
+
+.product-desc {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-top: 1.25rem;
+  font-weight: 500;        /* era 550, valoare nestandard */
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 1.5rem 1.5rem;
+  font-size: 1.25rem;
+  color: var(--coffee-gold);
+}
+
+.product-price {
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+
+/* ======================= FOOTER ======================= */
+
+footer {
+  background: var(--coffee-dark);
+  color: var(--text-light);
+  border-top: 4px solid var(--coffee-gold);
+  padding: 4.5rem 2.5rem;
+}
+
+.conta {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;             /* era 500px (!!), de aia footer-ul arăta rupt */
+  margin-bottom: 3rem;
+}
+
+.footer-column h3 {
+  font-size: 1.375rem;
+  font-weight: 600;        /* era 600px — px pe font-weight e invalid */
+  margin-bottom: 1.5rem;
+  position: relative;      /* ancoră pentru liniuța de sub titlu */
+  padding-bottom: 0.75rem;
+  text-shadow: 1.5px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* liniuța aurie de sub fiecare titlu de footer.
+   Înainte era făcută cu #footertop1/2/3 și poziții absolute
+   hardcodate (left: 815px, right: 230px...) care se rupeau la
+   orice lățime. Acum e atașată de fiecare h3 și merge mereu. */
+.footer-column h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--coffee-gold);
+}
+
+.footer-column p {
+  color: var(--coffee-accent);
+  max-width: 350px;        /* era width: 350px fix */
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column a {
+  text-decoration: none;
+  color: var(--coffee-accent);
+  font-size: 1.0625rem;
+  letter-spacing: 1px;
+}
+
+.footer-column a:hover {
+  color: var(--coffee-light);
+}
+
+.footer-column li {
+  color: var(--coffee-cream);
+  max-width: 250px;        /* era width: 250px fix */
+  margin-bottom: 1.25rem;
+  font-weight: bold;
+}
+
+.copyright {
+  text-align: center;
+  color: var(--coffee-accent);
+  font-weight: bold;
+  font-size: 1.0625rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.875rem;
+}
+
+@media (max-width: 600px) {
+  .contain{
+    flex-direction: column;
+  }
+  .logo i{
+      font-size: 1.9rem;
+    }
+    .logo-text{
+      font-size: 1.6rem;
+    }
+  .nav_buttons{
+    
+  }
+.nav_menu_btn { display: block; 
+  margin: 1rem;
+}   /* arată hamburger-ul pe mobil */
+
+  .navbar{
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-top: 1rem;
+  display: none;         /* ascuns până apeși butonul */
+}
+}
+.navbar.open { display: flex }
+
+.mobile-only { display: none; }
+
+
+
+@media (max-width: 900px) {
+  .nav_menu_btn {
+    display: block; 
+    
+  }
+
+  
+
+
+  .mobile-only { display: block; }
+
+  .navbar {
+    position: absolute;
+    top: 100%;               /* fix sub header */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 2rem;
+    background-color: #161515;
+    z-index: 1;
+    display: none;           /* ascuns până apeși butonul */
+  }
+
+  .navbar.open {
+    display: flex;           /* ASTA îl arată când JS pune clasa .open */
+  }
+
+  .contain {
+    flex-direction: column;
+  }
+
+    .nav-buttons {
+    display: none;           /* ascunzi Sign In / Order pe mobil, opțional */
+  }
+  
+}
+
+@media (max-width: 600px) {
+  .logo-icon { font-size: 1.9rem; }
+  .logo-text { font-size: 1.6rem; }
+}
+
+@media (max-width: 400px) {
+  .logo-text {
+    font-size: 1.2rem;
+    padding: 0;
+  }
+  .logo { gap: 0.3rem; }
+  .btn {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+}

@@ -1,13 +1,3 @@
-/* ============================================================
-   BREW HAVEN — stylesheet refăcut cu unități flexibile
-   ------------------------------------------------------------
-   Principiu de unități:
-   - font-size, spațieri mari  -> rem  (1rem = 16px)
-   - lățimi de conținut        -> %, max-width (NICIODATĂ px fix)
-   - înălțimi                  -> auto / fără px fix unde se poate
-   - borduri, detalii mici     -> px (nu trebuie să se scaleze)
-   Fără @media aici — partea de telefon o adaugi tu la final.
-   ============================================================ */
 
 :root {
   --coffee-dark: #3E2723;
@@ -19,7 +9,6 @@
   --text-dark: #2c2416;
   --text-light: #f3f3f3;
 
-  /* lățimea maximă a conținutului, centrat */
   --max-width: 1200px;
 }
 
@@ -32,7 +21,7 @@
 h1, h2, h3, h4 {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  letter-spacing: 1px;   /* px e ok aici: detaliu fin, nu se scalează */
+  letter-spacing: 1px;   
 }
 
 body {
@@ -40,12 +29,10 @@ body {
   background-color: var(--coffee-cream);
   color: var(--text-dark);
   line-height: 1.7;
-  /* NB: am scos `overflow-x: hidden`. Acela ascundea problemele
-     de overflow în loc să le rezolve. Vrei să VEZI când ceva
-     iese din ecran, ca să-l repari corect cu media queries. */
+  
 }
 
-/* imaginile devin fluide implicit peste tot */
+
 img {
   max-width: 100%;
   display: block;
@@ -68,8 +55,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding pe container în loc de margini pe logo/buton.
-     Mai curat și se adaptează mai ușor. */
+ 
   padding: 0 2rem;
 }
 
@@ -132,7 +118,7 @@ nav a:after {
   bottom: 0;
   left: 0;
   width: 0;
-  height: 2px;             /* linie fină -> px e ok */
+  height: 2px;             
   background: var(--coffee-gold);
   transition: width 0.4s ease;
 }
@@ -188,15 +174,15 @@ nav a:hover:after {
 /* ======================== HERO ======================== */
 
 .hero {
-  position: relative;             /* ancoră pentru ::before */
-  padding: 7rem 0 4rem;           /* top mare ca să treacă de header-ul fixat */
+  position: relative;             
+  padding: 7rem 0 4rem;           
   overflow: hidden;
 }
 
 .hero::before {
   content: "";
   position: absolute;
-  inset: 0;                       /* = top/left/right/bottom: 0 */
+  inset: 0;                       
   background: linear-gradient(135deg, #1d110c 0%, #000000 50%);
   z-index: -1;
 }
@@ -224,8 +210,7 @@ nav a:hover:after {
 }
 
 .image {
-  width: 100%;            /* era 2000px + margin-left 300px + height 800px:
-                             ASTA cauza scroll-ul orizontal */
+  width: 100%;            
   height: auto;
   border-radius: 1rem;
   background-image: transparent;
@@ -243,14 +228,14 @@ nav a:hover:after {
 
 .hero-subtitle::before {
   content: "";
-  width: 50px;            /* liniuță decorativă fixă -> px ok */
+  width: 50px;            
   height: 2px;
   background: var(--coffee-gold);
 }
 
 .hero-title {
   color: var(--text-light);
-  font-size: 4rem;        /* mare intenționat: ai pe ce exersa micșorarea */
+  font-size: 4rem;        
   letter-spacing: 1px;
   line-height: 1.1;
   margin-bottom: 2.5rem;
@@ -264,7 +249,7 @@ nav a:hover:after {
 
 .hero-text {
   color: var(--text-light);
-  max-width: 500px;       /* era width: 800px fix; max-width se strânge pe ecrane mici */
+  max-width: 500px;       
   font-size: 1.125rem;
   margin-bottom: 2.5rem;
 }
@@ -319,12 +304,12 @@ nav a:hover:after {
 .contai {
   width: 90%;
   max-width: var(--max-width);
-  margin: 0 auto;          /* era margin: 50px; margin-left: 80px (rupea centrarea) */
+  margin: 0 auto;          
 }
 
 .products-header {
   text-align: center;
-  margin-bottom: 4rem;     /* era `0 auto 100` — valoare invalidă, fără unitate */
+  margin-bottom: 4rem;    
 }
 
 .section-subtitle {
@@ -355,15 +340,14 @@ nav a:hover:after {
   margin-top: 1.25rem;
   color: var(--text-light);
   font-size: 1.5rem;
-  max-width: 600px;        /* era width: 95% pe tot ecranul */
+  max-width: 600px;        
   margin-left: auto;
   margin-right: auto;
 }
 
 .product-grid {
   display: grid;
-  /* auto-fit + minmax = se pliază SINGUR pe mai puține coloane
-     când nu mai încap. Asta e deja responsive fără media query! */
+ /
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 3rem;
   margin-top: 3rem;
@@ -374,8 +358,8 @@ nav a:hover:after {
   border-radius: 15px;
   overflow: hidden;
   position: relative;
-  width: 100%;             /* era 92% (lăsa un gol ciudat) */
-  height: auto;            /* era 670px fix; grid-ul aliniază înălțimile singur */
+  width: 100%;            
+  height: auto;           
   transition: all 0.4s ease;
 }
 
@@ -412,7 +396,7 @@ nav a:hover:after {
   color: var(--text-light);
   font-size: 0.9rem;
   margin-top: 1.25rem;
-  font-weight: 500;        /* era 550, valoare nestandard */
+  font-weight: 500;        
 }
 
 .product-footer {
@@ -447,23 +431,20 @@ footer {
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.5rem;             /* era 500px (!!), de aia footer-ul arăta rupt */
+  gap: 2.5rem;             
   margin-bottom: 3rem;
 }
 
 .footer-column h3 {
   font-size: 1.375rem;
-  font-weight: 600;        /* era 600px — px pe font-weight e invalid */
+  font-weight: 600;        
   margin-bottom: 1.5rem;
-  position: relative;      /* ancoră pentru liniuța de sub titlu */
+  position: relative;      
   padding-bottom: 0.75rem;
   text-shadow: 1.5px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* liniuța aurie de sub fiecare titlu de footer.
-   Înainte era făcută cu #footertop1/2/3 și poziții absolute
-   hardcodate (left: 815px, right: 230px...) care se rupeau la
-   orice lățime. Acum e atașată de fiecare h3 și merge mereu. */
+
 .footer-column h3::after {
   content: "";
   position: absolute;
@@ -476,7 +457,7 @@ footer {
 
 .footer-column p {
   color: var(--coffee-accent);
-  max-width: 350px;        /* era width: 350px fix */
+  max-width: 350px;        
   font-size: 1.125rem;
   margin-top: 1rem;
 }
@@ -498,7 +479,7 @@ footer {
 
 .footer-column li {
   color: var(--coffee-cream);
-  max-width: 250px;        /* era width: 250px fix */
+  max-width: 250px;        
   margin-bottom: 1.25rem;
   font-weight: bold;
 }
@@ -527,14 +508,14 @@ footer {
   }
 .nav_menu_btn { display: block; 
   margin: 1rem;
-}   /* arată hamburger-ul pe mobil */
+}   
 
   .navbar{
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
   padding-top: 1rem;
-  display: none;         /* ascuns până apeși butonul */
+  display: none;        
 }
 }
 .navbar.open { display: flex }
@@ -556,7 +537,7 @@ footer {
 
   .navbar {
     position: absolute;
-    top: 100%;               /* fix sub header */
+    top: 100%;               
     left: 0;
     width: 100%;
     flex-direction: column;
@@ -565,11 +546,11 @@ footer {
     padding: 1.5rem 2rem;
     background-color: #161515;
     z-index: 1;
-    display: none;           /* ascuns până apeși butonul */
+    display: none;           
   }
 
   .navbar.open {
-    display: flex;           /* ASTA îl arată când JS pune clasa .open */
+    display: flex;           
   }
 
   .contain {
@@ -577,7 +558,7 @@ footer {
   }
 
     .nav-buttons {
-    display: none;           /* ascunzi Sign In / Order pe mobil, opțional */
+    display: none;          
   }
   
 }
